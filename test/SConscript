@@ -16,4 +16,6 @@ print(source_files)
 env = Environment(CPPPATH=['../../../libs/gtest/include/'])
 env.Append( LIBS = common_libs )
 
-env.Program('sudokuTest', source_files, LIBPATH='../../../libs/gtest/libs/')
+a = env.Program('sudokuTest', source_files, LIBPATH='../../../libs/gtest/libs/')
+b = env.Command( 'none', '', 'build/test/sudokuTest')
+Depends(b, a)
