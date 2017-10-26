@@ -1,0 +1,19 @@
+import fnmatch
+import os
+
+source_files = []
+common_libs = ['gtest','pthread']
+path_to_src = '../../test/'
+patterns = ['*.cpp','*.h']
+
+for root, dirnames, filenames in os.walk(path_to_src):
+  print(filenames)
+  for pattern in patterns:
+    for filename in fnmatch.filter(filenames, pattern):
+      source_files.append(os.path.join(root[len(path_to_src):], filename))
+      
+print(source_files)
+env = Environment(CPPPATH=['../../../libs/gtest/include/'])
+env.Append( LIBS = common_libs )
+
+env.Program('sudokuTest', source_files, LIBPATH='../../../libs/gtest/libs/')

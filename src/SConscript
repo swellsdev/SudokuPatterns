@@ -1,0 +1,16 @@
+import fnmatch
+import os
+
+source_files = []
+path_to_src = '../../src/'
+patterns = ['*.cpp','*.h']
+
+for root, dirnames, filenames in os.walk(path_to_src):
+  for pattern in patterns:
+    for filename in fnmatch.filter(filenames, pattern):
+      source_files.append(os.path.join(root[len(path_to_src):], filename))
+      
+print(source_files)
+
+env = Environment()
+env.Program('sudoku', source_files)
