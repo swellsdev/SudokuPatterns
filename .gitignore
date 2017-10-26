@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+#scons
+*.sconsign*
+
 # Compiled Object files
 *.slo
 *.lo
