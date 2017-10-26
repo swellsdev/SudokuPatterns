@@ -2,7 +2,7 @@
 *.d
 
 #scons
-*.sconsign*
+*.sconsign.dblite
 
 # Compiled Object files
 *.slo
