@@ -2,7 +2,7 @@ import fnmatch
 import os
 
 source_files = []
-common_libs = ['gtest','pthread','libsudoku']
+common_libs = ['libsudoku','gtest','pthread']
 path_to_src = '../../test/'
 patterns = ['*.cpp','*.h']
 
@@ -16,10 +16,11 @@ print(source_files)
 
 env = Environment(CPPPATH=['../../../libs/gtest/include/','../src/include'])
 env.Append( LIBS = common_libs )
+env.Append(CXXFLAGS = ["-ggdb"])
 
 buildTests = env.Program('sudokuTest', source_files, LIBPATH=['../../../libs/gtest/libs/','../src/'])
-runTests = env.Command( 'none', '', 'build/test/sudokuTest')
+#runTests = env.Command( 'none', '', 'build/test/sudokuTest')
 
 #Only run tests if tests build successfully
-Depends(runTests, buildTests)
+#Depends(runTests, buildTests)
 

@@ -15,5 +15,6 @@ print(source_files)
 # Create environment, tell SCons to look in the 'include' directoy for any files
 # included by C source files
 env = Environment(CPPPATH=['include'])
+env.Append(CXXFLAGS = ["-ggdb"])
 env.Program('sudoku', source_files)
 env.StaticLibrary('sudoku', source_files)
