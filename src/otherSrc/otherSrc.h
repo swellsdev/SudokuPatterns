@@ -5,6 +5,7 @@ class otherSrc
 {
 public:
     void foo();
+    bool isTrue();
 };
 
 #endif 

@@ -1,4 +1,4 @@
-#include "otherSrc/otherSrc.h"
+#include "otherSrc.h"
 #include <iostream>
 
 int main() {

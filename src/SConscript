@@ -12,5 +12,8 @@ for root, dirnames, filenames in os.walk(path_to_src):
       
 print(source_files)
 
-env = Environment()
+# Create environment, tell SCons to look in the 'include' directoy for any files
+# included by C source files
+env = Environment(CPPPATH=['include'])
 env.Program('sudoku', source_files)
+env.StaticLibrary('sudoku', source_files)
