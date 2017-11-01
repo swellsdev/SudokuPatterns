@@ -1,0 +1,19 @@
+// This file overrides the built-in C++ (simple) runner
+// For more information see http://docs.c9.io:8080/#!/api/run-method-run
+{
+  "script": [
+    "set -e",
+    "cd /home/ubuntu/workspace/sudoku",
+    "scons",
+    //Not can only set breakpoints on files in the build dir with these settings
+    "cd build/test",
+    "chmod 755 \"sudokuTest\"",
+    "cd /home/ubuntu/workspace/sudoku/src"
+    "node $HOME/.c9/bin/c9gdbshim.js ../build/sudokuTest -g=gdb"
+  ],
+  "info": "Running sudokuTest",
+  "debugger": "gdb",
+  "$debugDefaultState": false,
+  "env": {},
+  "selector": "^.*\\.(cpp|cc)$"
+}
