@@ -3,15 +3,12 @@
 {
   "script": [
     "set -e",
-    "cd /home/ubuntu/workspace/sudoku",
+    "cd $scons_path",
     "scons",
-    //Not can only set breakpoints on files in the build dir with these settings
-    "cd build/test",
-    "chmod 755 \"sudokuTest\"",
-    "cd /home/ubuntu/workspace/sudoku/src"
-    "node $HOME/.c9/bin/c9gdbshim.js ../build/sudokuTest -g=gdb"
+    "chmod 755 $prog_path",
+    "node $HOME/.c9/bin/c9gdbshim.js $prog_path -g=gdb"
   ],
-  "info": "Running sudokuTest",
+  "info": "Running sudoku",
   "debugger": "gdb",
   "$debugDefaultState": false,
   "env": {},
