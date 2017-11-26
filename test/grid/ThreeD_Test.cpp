@@ -23,10 +23,12 @@ TEST_F(ThreeD_Test, Initialise)
   ASSERT_EQ(0, d.get(8, 8, 9));
 }
 
-TEST_F(ThreeD_Test, IllegalIndex)
+TEST_F(ThreeD_Test, IllegalIndexThrowsException)
 {
   ThreeD d(9,9,10);
   ASSERT_ANY_THROW(d.get(9, 8, 9));
+  ASSERT_ANY_THROW(d.get(8, 9, 9));
+  ASSERT_ANY_THROW(d.get(9, 8, 10));
 }
 
 TEST_F(ThreeD_Test, IndexSweep)

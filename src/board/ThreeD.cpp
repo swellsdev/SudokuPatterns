@@ -10,25 +10,25 @@ ThreeD::ThreeD(unsigned int x,unsigned int y,unsigned int z)
   rawData = new int[x * y * z]();
 }
 
-unsigned int ThreeD::get(unsigned int x,unsigned int y,unsigned int z)
+unsigned int ThreeD::get(unsigned int x, unsigned int y, unsigned int z)
 {
   checkIndexIsValid(x,y,z);
-  unsigned int index = getOffsetFromCoordinates(x,y,z);
+  int index = getOffsetFromCoordinates(x,y,z);
   return rawData[index];
 }
 
-void ThreeD::set(unsigned int x,unsigned int y,unsigned int z, int val)
+void ThreeD::set(unsigned int x, unsigned int y, unsigned int z, int val)
 {
   checkIndexIsValid(x,y,z);
-  unsigned int index = getOffsetFromCoordinates(x,y,z);
+  int index = getOffsetFromCoordinates(x,y,z);
   rawData[index] = val;
 }
 
-void ThreeD::checkIndexIsValid(unsigned int x,unsigned int y,unsigned int z)
+void ThreeD::checkIndexIsValid(unsigned int x, unsigned int y, unsigned int z)
 {
   if(x >= xLen || y >= yLen || z >= zLen)
   {
-    throw std::invalid_argument("index out of range");
+    throw std::invalid_argument("3D index out of range");
   }
 }
 

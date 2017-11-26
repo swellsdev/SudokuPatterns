@@ -16,9 +16,11 @@ class GridTest : public ::testing::Test
   }
 };
 
-TEST_F(GridTest, EmptyGridTest)
+TEST_F(GridTest, TestPrint)
 {
   Grid g;
-  
+  std::string result = g.print();
+  //ASSERT_NE(std::string::npos,result.find("-"));
+  std::cout << result << std::endl;
+  std::cout << "\033[1;31mbold red text\033[0m\n";
 }
-
